@@ -42,7 +42,7 @@ class Type {
 Utilisateur "1" -- "0..*" Réservation : fait
 Réservation "0..*" -- "1" Véhicule : concerne
 Station "1" -- "1..*" Véhicule : contient 
-Type "1" -- "1..*" Véhicule : contient 
+Type "1" -- "1..*" Véhicule : correspond 
 Véhicule "1" -- "0..*" Dommage : subit 
 
 @enduml
