@@ -1,0 +1,48 @@
+@startuml
+
+class Utilisateur {
+    +id: Integer
+    +nom: String
+    +email: String
+    +motDePasse: String
+}
+
+class Réservation {
+    +id: Integer
+    +dateDeDébut: DateTime
+    +dateDeFin: DateTime
+    +heureDeDébut: Time
+    +heureDeFin: Time
+    +montant: Decimal
+}
+
+class Station {
+    +id: Integer
+    +nom: String
+    +adresse: String
+}
+
+class Véhicule {
+    +id: Integer
+    +type: String
+    +kilomètresParcourus: Decimal
+}
+
+class Dommage {
+    +id: Integer
+    +dateDommage: Date
+    +description: String
+}
+
+class Type {
+    +id: Integer
+    +nom: String
+}
+
+Utilisateur "1" -- "0..*" Réservation : fait
+Réservation "0..*" -- "1" Véhicule : concerne
+Station "1" -- "1..*" Véhicule : contient 
+Type "1" -- "1..*" Véhicule : contient 
+Véhicule "1" -- "0..*" Dommage : subit 
+
+@enduml
